@@ -1,0 +1,61 @@
+html,
+body {
+	overflow-x: hidden;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	font-family: Raleway;
+	color: white;
+
+	body {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+#canvas {
+	width: 854px;
+	height: 480px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.75);
+	background: white;
+}
+
+#video {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	z-index: -1;
+	display: none;
+}
+
+nav {
+	display: flex;
+	flex-flow: row;
+	margin-top: 50px;
+	#start {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px 20px;
+		background: rgb(0, 75, 0);
+		color: white;
+		text-transform: uppercase;
+		margin-right: 50px;
+		cursor: pointer;
+	}
+
+	#stop {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: rgb(83, 0, 0);
+		padding: 10px 20px;
+		color: white;
+		text-transform: uppercase;
+		margin-left: 50px;
+		cursor: pointer;
+	}
+}
