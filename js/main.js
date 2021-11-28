@@ -10,6 +10,15 @@ var capturer = new CCapture({
 	quality: 75,
 });
 
+var tl = gsap.timeline({
+	repeat: -1,
+	duration: 1.5,
+	yoyo: true,
+});
+var text = { x: -50, y: -100 };
+tl.to(text, { x: 50, y: 100 });
+tl.pause();
+
 (function () {
 	canvas = document.getElementById("canvas");
 	ctx = canvas.getContext("2d");
@@ -64,20 +73,16 @@ function drawText(x, y, zoom) {
 	ctx.restore();
 }
 
-var lastUpdate;
 var t = 0;
 function Update() {
-	var now = performance.now();
-	var dt = now - lastUpdate;
-	lastUpdate = now;
-
 	requestAnimationFrame(function () {
 		Update();
 	});
 
-	drawText(Math.sin(t) * 100, Math.sin(t * 2) * 50, 1);
+	drawText(text.x, text.y, 1);
 
 	t += 0.05;
+	tl.progress(t);
 
 	if (recording) {
 		capturer.capture(canvas);
